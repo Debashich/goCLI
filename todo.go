@@ -29,7 +29,7 @@ func (todos *Todos) Add(title string) {
 
 func (todos *Todos) validateIndex(index int) error {
 	if index < 0 || index >= len(*todos) {
-		err := errors.New("Invalid index")
+		err := errors.New("invalid index")
 		return err
 	}
 	return nil
@@ -45,7 +45,7 @@ func (todos *Todos) Delete(index int) error {
 	return nil
 }
 
-func (todos *Todos) toggle(index int) error {
+func (todos *Todos) Toggle(index int) error {
 	t := *todos
 	
 	if err:= t.validateIndex(index); err != nil {
@@ -57,13 +57,15 @@ func (todos *Todos) toggle(index int) error {
 	if !isCompleted {
 		completionTime := time.Now()
 		t[index].CompletedAt = &completionTime
+	} else {
+		t[index].CompletedAt = nil
 	}
 
 	t[index].Completed = !isCompleted
 	return nil
 }
 
-func (todos *Todos) edit(index int, title string) error {
+func (todos *Todos) Edit(index int, title string) error {
 	t := *todos
 	
 	if err:= t.validateIndex(index); err != nil {
@@ -74,7 +76,7 @@ func (todos *Todos) edit(index int, title string) error {
 	return nil
 }
 
-func (todos *Todos) print() {
+func (todos *Todos) Print() {
 	table := table.New(os.Stdout)
 	table.SetRowLines(false)
 	table.SetHeaders("Index", "Title", "Completed", "Created At", "Completed At")

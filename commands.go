@@ -1,8 +1,8 @@
 package main
 
 import (
-	"flag"
 	"fmt"
+	"flag"
 	"strconv"
 	"strings"
 )
@@ -32,7 +32,9 @@ func (cf *cmdFlags) Execute(todos *Todos) {
 	case cf.Add != "":
 		todos.Add(cf.Add)
 	case cf.Del >= 0:
-		todos.Delete(cf.Del)
+		if err := todos.Delete(cf.Del); err != nil {
+			fmt.Println("Error deleting todo:", err)
+		}
 	case cf.Edit != "":
 		parts := strings.SplitN(cf.Edit, ":", 2)
 		if len(parts) != 2 {
@@ -44,11 +46,15 @@ func (cf *cmdFlags) Execute(todos *Todos) {
 			fmt.Println("Invalid index for edit.")
 			return
 		}
-		todos.edit(index, parts[1])
+		if err := todos.Edit(index, parts[1]); err != nil {
+			fmt.Println("Error editing todo:", err)
+		}
 	case cf.Toggle >= 0:
-		todos.toggle(cf.Toggle)
+		if err := todos.Toggle(cf.Toggle); err != nil {
+			fmt.Println("Error toggling todo:", err)
+		}
 	case cf.List:
-		todos.print()
+		todos.Print()
 	default:
 		fmt.Println("No valid command provided. Use -h for help.")
 	}

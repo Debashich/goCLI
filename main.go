@@ -9,5 +9,7 @@ func main(){
 	todos := Todos(data)
 	cmdFlags := NewCmdFlags()
 	cmdFlags.Execute(&todos)
-	storage.Save(todos)
+	if err := storage.Save(todos); err != nil {
+		fmt.Println("Error saving todos:", err)
+	}
 }
