@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main(){
 	storage := NewStorage[Todo]("todos.json")
 	data, err := storage.Load()
