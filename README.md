@@ -1,3 +1,5 @@
+![CI](https://github.com/Debashich/goCLI/actions/workflows/go.yml/badge.svg)
+
 # GoCLI Todo Manager
 
 A lightweight, persistent Command Line Interface (CLI) todo manager built with Go. It uses JSON for storage and renders a clean table interface in your terminal.
