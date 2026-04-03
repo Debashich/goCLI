@@ -1,4 +1,4 @@
-![CI](https://github.com/Debashich/goCLI/actions/workflows/go.yml/badge.svg)
+![CI](https://github.com/Debashich/goCLI/actions/workflows/go.yaml/badge.svg)
 
 # GoCLI Todo Manager
 
