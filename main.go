@@ -18,3 +18,4 @@ func main(){
 	cmdFlags.Execute(&todos)
 	storage.Save(todos)
 }
+fmt.Println("missing bracket"
