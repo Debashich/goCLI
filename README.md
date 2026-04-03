@@ -1,8 +1,11 @@
-![CI](https://github.com/Debashich/goCLI/actions/workflows/go.yaml/badge.svg)
-
 # GoCLI Todo Manager
 
-A lightweight, persistent Command Line Interface (CLI) todo manager built with Go. It uses JSON for storage and renders a clean table interface in your terminal.
+---
+![CI](https://img.shields.io/github/actions/workflow/status/Debashich/goCLI/go.yaml?label=CI&style=for-the-badge&logo=github)
+![Go](https://img.shields.io/badge/Go-1.22-blue?style=for-the-badge&logo=go)
+
+
+A Go-based CLI todo manager with JSON persistence and a CI/CD pipeline using GitHub Actions for automated build, linting, and testing.
 
 ---
 
@@ -15,12 +18,23 @@ A lightweight, persistent Command Line Interface (CLI) todo manager built with G
 
 ---
 
+## CI/CD
+
+This project uses **GitHub Actions**:
+
+- Automated builds on every push  
+- Code linting using `golangci-lint`  
+- Running tests  
+- Ensuring consistent code quality  
+
+---
+
 ## Installation
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/goCLI.git
+git clone https://github.com/Debashich/goCLI.git
 cd goCLI
 ````
 
@@ -38,15 +52,15 @@ go build -o todo
 
 ---
 
-## ▶Usage
+## Usage
 
-You can run the application using the compiled binary:
+Run using the compiled binary:
 
 ```bash
 ./todo
 ```
 
-Or using Go directly:
+Or directly with Go:
 
 ```bash
 go run .
@@ -56,7 +70,7 @@ go run .
 
 ## Commands
 
-### 1. Add a new task
+### Add a new task
 
 ```bash
 ./todo -add "Finish Go project"
@@ -64,7 +78,7 @@ go run .
 
 ---
 
-### 2. List all tasks
+### List all tasks
 
 ```bash
 ./todo -list
@@ -72,9 +86,7 @@ go run .
 
 ---
 
-### 3. Toggle completion status
-
-Changes a task from **Pending → Completed** (or vice versa):
+### Toggle completion status
 
 ```bash
 ./todo -toggle 0
@@ -82,9 +94,9 @@ Changes a task from **Pending → Completed** (or vice versa):
 
 ---
 
-### 4. Edit a task title
+### Edit a task
 
-Use the format:
+Format:
 
 ```bash
 index:new text
@@ -98,7 +110,7 @@ Example:
 
 ---
 
-### 5. Delete a task
+### Delete a task
 
 ```bash
 ./todo -del 0
@@ -107,8 +119,6 @@ Example:
 ---
 
 ## Help
-
-To see all available flags and descriptions:
 
 ```bash
 ./todo -h
@@ -120,23 +130,22 @@ To see all available flags and descriptions:
 
 ```
 .
-├── commands.go     # CLI command handling
-├── main.go         # Application entry point
-├── todo.go         # Core todo logic
-├── storage.go      # JSON persistence logic
-├── todos.json      # Data storage file
-├── go.mod          # Module definition
-├── go.sum          # Dependencies checksum
-└── README.md       # Project documentation
+├── .github/
+│   └── workflows/
+│       └── go.yaml        # GitHub Actions CI pipeline
+├── commands.go            # CLI command handling
+├── main.go                # Application entry point
+├── todo.go                # Core todo logic
+├── storage.go             # JSON persistence logic
+├── todos.json             # Data storage file
+├── go.mod                 # Module definition
+├── go.sum                 # Dependencies checksum
+└── README.md              # Project documentation
 ```
 
 ---
 
-## Future Improvements
 
-* Add priority levels (Low, Medium, High)
-* Add due dates
-* Add search/filter functionality
-* Export tasks to CSV
+## License
 
----
+This project is open-source and available under the MIT License.
