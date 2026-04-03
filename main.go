@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
-
 func main(){
-	fmt.Println("CLI")
+	todos := Todos{}
+	todos.Add("Learn Go")
+	todos.Add("Study FLOAT")
+	todos.toggle(0)
+	todos.print()
 }
