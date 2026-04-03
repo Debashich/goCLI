@@ -1,13 +1,6 @@
 package main
 
 func main(){
-	// todos := Todos{}
-	// storage := NewStorage[Todo]("todos.json")
-	// storage.Load()
-	// cmdFlags := NewCmdFlags()
-	// cmdFlags.Execute(&todos)
-	// storage.Save(todos)
-
 	storage := NewStorage[Todo]("todos.json")
 	data, err := storage.Load()
 	if err != nil {
@@ -18,4 +11,3 @@ func main(){
 	cmdFlags.Execute(&todos)
 	storage.Save(todos)
 }
-fmt.Println("missing bracket"
