@@ -1,12 +1,20 @@
 package main
 
 func main(){
-	todos := Todos{}
+	// todos := Todos{}
+	// storage := NewStorage[Todo]("todos.json")
+	// storage.Load()
+	// cmdFlags := NewCmdFlags()
+	// cmdFlags.Execute(&todos)
+	// storage.Save(todos)
+
 	storage := NewStorage[Todo]("todos.json")
-	storage.Load()
-	todos.Add("Learn Go")
-	todos.Add("Study FLOAT")
-	todos.toggle(0)
-	todos.print()
+	data, err := storage.Load()
+	if err != nil {
+		panic(err)
+	}
+	todos := Todos(data)
+	cmdFlags := NewCmdFlags()
+	cmdFlags.Execute(&todos)
 	storage.Save(todos)
 }
