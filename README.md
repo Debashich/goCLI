@@ -1,11 +1,11 @@
-# GoCLI Todo Manager
+# gocli Todo Manager
 
 ---
 ![CI](https://img.shields.io/github/actions/workflow/status/Debashich/goCLI/go.yaml?label=CI&style=for-the-badge&logo=github)
 ![Go](https://img.shields.io/badge/Go-1.22-blue?style=for-the-badge&logo=go)
 
 
-A Go-based CLI todo manager with JSON persistence and a CI/CD pipeline using GitHub Actions for automated build, linting, and testing.
+A Golang based CLI todo manager with JSON persistence and a CI/CD pipeline using GitHub Actions for automated build, linting, and testing.
 
 ---
 
